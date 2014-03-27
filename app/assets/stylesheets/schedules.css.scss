@@ -1,0 +1,26 @@
+// Place all the styles related to the schedules controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.header-container{
+    position: relative;
+    background: blue;
+    overflow: hidden;
+    padding: 30px;
+}
+h1 {
+    display: inline;
+    font-family: sans-serif;
+    color: #FFFFFF;
+    line-height: 60px;
+}
+h1:after{
+    content: '';
+    width: 100%;
+    background-color: #fff; /*your page bg color*/
+    height: 75px;
+    position: absolute;
+    bottom: 0;
+    margin-left: 40px;
+}
+

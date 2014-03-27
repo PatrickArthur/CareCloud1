@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @schedule.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @schedule.end_time %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @schedule.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @schedule.last_name %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @schedule.comments %>
+</p>
+
+<%= link_to 'Edit', edit_schedule_path(@schedule) %> |
+<%= link_to 'Back', schedules_path %>

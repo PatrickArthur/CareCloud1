@@ -1,0 +1,61 @@
+<div class="header-container">
+<h2> Welcome to @Acme Scheduling System</h2>
+</div>
+<br />
+<hr>
+
+<h3> Step1 - Import a CSV File (When a new schedule comes)</h3>
+  <%= form_tag import_schedules_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import CSV" %>
+  <% end %>
+</div>
+<br />
+<br />
+<hr>
+
+<h3>Schedule a Time</h3>
+<p> <b>Time must be after today and must not overlap with an existing time in the scheduling system </b></p>
+
+<%= render "schedules/form" %>
+
+<br />
+<br />
+<hr>
+
+<h2> List of Times </h2>
+<table>
+  <thead>
+    <tr>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Comments</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @schedules.each do |schedule| %>
+      <tr>
+        <td><%= schedule.start_time.strftime('%m/%d/%Y %l:%M %P') %></td>
+        <td><%= schedule.end_time.strftime('%m/%d/%Y %l:%M %P') %></td>
+        <td><%= schedule.first_name %></td>
+        <td><%= schedule.last_name %></td>
+        <td><%= schedule.comments %></td>
+        <td><%= button_to "Edit Time", edit_schedule_path(schedule), :method => "get" %></td>
+        <td><%= button_to "Delete Time", schedule, :method=>:delete, :class=>:destroy %></td>
+      
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+
