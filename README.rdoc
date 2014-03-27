@@ -1,28 +1,27 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+CareCloud
+=========
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+CareCloud Assesment Description - Create a Rails Application that imports a CSV file 
+into a Model and allows users to create, edit, delete and view their scheduled date/time. 
+A user must choose a date/time that is in the future and this can not overlap with another 
+persons date/time on the list.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Steps - Started by using Scaffold to create the Model, Controller and Views for Schedule. I 
+created a model called schedule with the following date fields (Start_Time:datetime, End_time:datetime,
+First_name:string, Last_Name:string, Comments:String. Within this model I created a method called Import which 
+referenced a filepath and allows users to import a csv file that will be stored in the model.
+
+I next created a method in the controller called Import that was used to import the file. Within the Controller,
+I specifed where a users would be able to create a new action, edit and delete.
+
+Within the views, I created an Index page that lists all of the information from the CSV as well as renders the 
+new action form where a user can add their name and check if their time is available. A user can also edit their time 
+as well as delete. Within my model, I have validations that check to see if the Start and End times are in the future
+as of todays date and current time as well as a step to check the selected date against other dates in the list to avoid
+overlap. I did this using two open source gems called validates_timeliness and validates_overlap. I also included the Rspec 
+gem since I usually employ test driven development in my applications.
+
+For the front end, I download Twitter Bootstrap.
